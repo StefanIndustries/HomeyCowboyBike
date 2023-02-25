@@ -1,2 +1,3 @@
-# HomeyCowboyBike
-Homey Cowboy Bike integration
+# Cowboy Bikes
+
+Adds Cowboy Bike integration

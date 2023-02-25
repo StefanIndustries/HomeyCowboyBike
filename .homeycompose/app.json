@@ -1,0 +1,40 @@
+{
+  "id": "com.cowboy",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Cowboy Bikes"
+  },
+  "description": {
+    "en": "Adds Cowboy Bike integration"
+  },
+  "category": [
+    "internet"
+  ],
+  "source": "https://github.com/StefanIndustries/HomeyCowboyBike",
+  "bugs": {
+    "url": "https://github.com/StefanIndustries/HomeyCowboyBike/issues"
+  },
+  "permissions": [],
+  "support": "mailto:sjsimon1996@gmail.com",
+  "contributing": {
+    "donate": {
+      "bunq": {
+        "username": "StefanJSimon"
+      }
+    }
+  },
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Stefan Simon",
+    "email": "sjsimon1996@gmail.com"
+  }
+}
