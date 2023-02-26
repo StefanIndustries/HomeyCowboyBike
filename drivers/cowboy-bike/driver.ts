@@ -47,6 +47,27 @@ class CowboyDriver extends Homey.Driver {
       return devices;
     });
   }
+
+  async onRepair(session: PairSession, device: Homey.Device) {
+    let username;
+    let password;
+    let cowboyClient;
+    session.setHandler('login', async (data: {username: string, password: string}) => {
+      username = data.username.trim();
+      password = data.password;
+      cowboyClient = new Cowboy(username, password);
+      try {
+        cowboyClient.getMe();
+        device.setSettings({
+          "username": username,
+          "password": password
+        });
+      } catch {
+        return false;
+      }
+      return true;
+    });
+  }
   private getIcon(modelName: string): string {
     switch (modelName.toLowerCase().replace(' ', '')) {
       case 'cowboy4':

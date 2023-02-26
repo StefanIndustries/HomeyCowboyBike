@@ -1,12 +1,12 @@
 {
     "type": "number",
     "title": {
-        "en": "Total Duration",
-        "nl": "Totale duur"
+        "en": "Total Travel Duration",
+        "nl": "Totale rit duur"
     },
     "units": {
-        "en": "Hours",
-        "nl": "Uren"
+        "en": "hours",
+        "nl": "uren"
     },
     "getable": true,
     "setable": false,

@@ -48,17 +48,17 @@
         "measure_battery",
         "measure_battery_bike",
         "alarm_crashed",
-        "autonomy",
-        "total_distance",
-        "total_duration",
-        "total_co2_saved",
+        "meter_autonomy",
+        "meter_total_distance",
+        "meter_total_duration",
+        "meter_total_co2_saved",
         "latitude",
         "longitude"
       ],
       "energy": {
         "batteries": [
           "INTERNAL",
-          "INTERNAL"
+          "OTHER"
         ]
       },
       "platforms": [
@@ -77,14 +77,14 @@
           "id": "login_credentials",
           "template": "login_credentials",
           "options": {
-            "logo": "/drivers/cowboy-bike/assets/images/logoColor.png",
+            "logo": "/drivers/cowboy-bike/assets/default.svg",
             "usernameLabel": {
               "en": "Username",
               "nl": "Gebruikersnaam"
             },
             "usernamePlaceholder": {
-              "en": "...@...",
-              "nl": "...@..."
+              "en": "john@doe.nl",
+              "nl": "john@doe.nl"
             },
             "passwordLabel": {
               "en": "Password",
@@ -128,21 +128,6 @@
       "setable": false,
       "uiComponent": "sensor",
       "icon": "./assets/cap_crash.svg"
-    },
-    "autonomy": {
-      "type": "number",
-      "title": {
-        "en": "Autonomy",
-        "nl": "Autonomy"
-      },
-      "units": {
-        "en": "km",
-        "nl": "km"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "icon": "./assets/cap_autonomy.svg"
     },
     "latitude": {
       "type": "number",
@@ -190,7 +175,22 @@
       "setable": false,
       "uiComponent": "battery"
     },
-    "total_co2_saved": {
+    "meter_autonomy": {
+      "type": "number",
+      "title": {
+        "en": "Autonomy",
+        "nl": "Autonomy"
+      },
+      "units": {
+        "en": "km",
+        "nl": "km"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/cap_autonomy.svg"
+    },
+    "meter_total_co2_saved": {
       "type": "number",
       "title": {
         "en": "Total CO2 Saved",
@@ -205,7 +205,7 @@
       "uiComponent": "sensor",
       "icon": "./assets/cap_total_co2_saved.svg"
     },
-    "total_distance": {
+    "meter_total_distance": {
       "type": "number",
       "title": {
         "en": "Total Distance",
@@ -220,15 +220,15 @@
       "uiComponent": "sensor",
       "icon": "./assets/cap_total_distance.svg"
     },
-    "total_duration": {
+    "meter_total_duration": {
       "type": "number",
       "title": {
-        "en": "Total Duration",
-        "nl": "Totale duur"
+        "en": "Total Travel Duration",
+        "nl": "Totale rit duur"
       },
       "units": {
-        "en": "Hours",
-        "nl": "Uren"
+        "en": "hours",
+        "nl": "uren"
       },
       "getable": true,
       "setable": false,

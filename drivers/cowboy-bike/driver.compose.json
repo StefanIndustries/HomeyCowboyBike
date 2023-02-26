@@ -7,17 +7,17 @@
     "measure_battery",
     "measure_battery_bike",
     "alarm_crashed",
-    "autonomy",
-    "total_distance",
-    "total_duration",
-    "total_co2_saved",
+    "meter_autonomy",
+    "meter_total_distance",
+    "meter_total_duration",
+    "meter_total_co2_saved",
     "latitude",
     "longitude"
   ],
   "energy": {
     "batteries": [
       "INTERNAL",
-      "INTERNAL"
+      "OTHER"
     ]
   },
   "platforms": [
@@ -36,14 +36,14 @@
       "id": "login_credentials",
       "template": "login_credentials",
       "options": {
-        "logo": "{{driverAssetsPath}}/images/logoColor.png",
+        "logo": "{{driverAssetsPath}}/default.svg",
         "usernameLabel": {
           "en": "Username",
           "nl": "Gebruikersnaam"
         },
         "usernamePlaceholder": {
-          "en": "...@...",
-          "nl": "...@..."
+          "en": "john@doe.nl",
+          "nl": "john@doe.nl"
         },
         "passwordLabel": {
           "en": "Password",

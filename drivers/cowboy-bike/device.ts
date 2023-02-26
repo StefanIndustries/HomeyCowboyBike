@@ -1,6 +1,5 @@
 import Homey from 'homey';
 import { Cowboy } from 'node-cowboybike';
-import { Bike } from 'node-cowboybike/lib/Models/Bike';
 
 class CowboyDevice extends Homey.Device {
 
@@ -49,10 +48,10 @@ class CowboyDevice extends Homey.Device {
       this.lastCrash = bikeData?.last_crash_started_at;
       this.setCapabilityValue('alarm_crashed', bikeData?.crashed);
     }
-    this.setCapabilityValue('autonomy', Math.round((bikeData!.autonomy / 100) * bikeData!.battery_state_of_charge));
-    this.setCapabilityValue('total_distance', Math.round(bikeData!.total_distance));
-    this.setCapabilityValue('total_duration', Math.round(bikeData!.total_duration / 3600));
-    this.setCapabilityValue('total_co2_saved', Math.round(bikeData!.total_co2_saved / 1000));
+    this.setCapabilityValue('meter_autonomy', Math.round((bikeData!.autonomy / 100) * bikeData!.battery_state_of_charge));
+    this.setCapabilityValue('meter_total_distance', Math.round(bikeData!.total_distance));
+    this.setCapabilityValue('meter_total_duration', Math.round(bikeData!.total_duration / 3600));
+    this.setCapabilityValue('meter_total_co2_saved', Math.round(bikeData!.total_co2_saved / 1000));
     this.setCapabilityValue('latitude', bikeData?.position.latitude);
     this.setCapabilityValue('longitude', bikeData?.position.longitude);
   }
