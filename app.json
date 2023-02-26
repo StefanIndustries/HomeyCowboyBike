@@ -1,3 +1,107 @@
 {
-  "_comment": "This file is generated. Please edit .homeycompose/app.json instead."
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.cowboy",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Cowboy Bikes"
+  },
+  "description": {
+    "en": "Check your Cowboy bike for a smarter ride"
+  },
+  "category": [
+    "internet"
+  ],
+  "source": "https://github.com/StefanIndustries/HomeyCowboyBike",
+  "bugs": {
+    "url": "https://github.com/StefanIndustries/HomeyCowboyBike/issues"
+  },
+  "permissions": [],
+  "support": "mailto:sjsimon1996@gmail.com",
+  "contributing": {
+    "donate": {
+      "bunq": {
+        "username": "StefanJSimon"
+      }
+    }
+  },
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Stefan Simon",
+    "email": "sjsimon1996@gmail.com"
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Cowboy Bike"
+      },
+      "class": "other",
+      "capabilities": [
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/cowboy-bike/assets/images/small.png",
+        "large": "/drivers/cowboy-bike/assets/images/large.png",
+        "xlarge": "/drivers/cowboy-bike/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "logo": "/drivers/cowboy-bike/assets/images/logoColor.png",
+            "usernameLabel": {
+              "en": "Username",
+              "nl": "Gebruikersnaam"
+            },
+            "usernamePlaceholder": {
+              "en": "...@...",
+              "nl": "...@..."
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "nl": "Wachtwoord"
+            },
+            "passwordPlaceholder": {
+              "en": "Password",
+              "nl": "Wachtwoord"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials"
+        }
+      ],
+      "id": "cowboy-bike"
+    }
+  ]
 }

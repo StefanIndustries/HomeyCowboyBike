@@ -1,19 +1,47 @@
 import Homey from 'homey';
+import { Cowboy } from 'node-cowboybike';
+import { Bike } from 'node-cowboybike/lib/Models/Bike';
 
-class MyDevice extends Homey.Device {
+class CowboyDevice extends Homey.Device {
+
+  private cowboyClient: Cowboy | undefined;
+  private bikeId: number | undefined;
+  private pollInterval: any;
 
   /**
    * onInit is called when the device is initialized.
    */
   async onInit() {
-    this.log('MyDevice has been initialized');
+    this.bikeId = <number> this.getData().id;
+    this.cowboyClient = new Cowboy(this.getSetting('username'), this.getSetting('password'));
+    try {
+      const meData = await this.cowboyClient.getMe();
+      await this.updateBikeData();
+    } catch (exception) {
+      this.log(exception);
+      this.setUnavailable();
+    }
+    this.setAvailable();
+    this.startPolling();
+    this.log('Cowboy device has been initialized');
+  }
+
+  private async startPolling() {
+    this.pollInterval = this.homey.setInterval(async () => {
+      await this.updateBikeData();
+    }, 10 * 60000) // 10 minutes
+  }
+
+  private async updateBikeData() {
+    const bikeData = await this.cowboyClient?.getBike(this.bikeId!);
+    this.setCapabilityValue('measure_battery', bikeData?.battery_state_of_charge)
   }
 
   /**
    * onAdded is called when the user adds the device, called just after pairing.
    */
   async onAdded() {
-    this.log('MyDevice has been added');
+    this.log('Cowboy device has been added');
   }
 
   /**
@@ -25,7 +53,7 @@ class MyDevice extends Homey.Device {
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
   async onSettings({ oldSettings: {}, newSettings: {}, changedKeys: [] }): Promise<string|void> {
-    this.log('MyDevice settings where changed');
+    this.log('Cowboy device settings where changed');
   }
 
   /**
@@ -34,16 +62,15 @@ class MyDevice extends Homey.Device {
    * @param {string} name The new name
    */
   async onRenamed(name: string) {
-    this.log('MyDevice was renamed');
+    this.log('Cowboy device was renamed');
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
   async onDeleted() {
-    this.log('MyDevice has been deleted');
+    this.log('Cowboy device has been deleted');
   }
-
 }
 
-module.exports = MyDevice;
+module.exports = CowboyDevice;
