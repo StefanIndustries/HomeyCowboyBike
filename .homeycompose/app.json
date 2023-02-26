@@ -19,6 +19,8 @@
   "bugs": {
     "url": "https://github.com/StefanIndustries/HomeyCowboyBike/issues"
   },
+  "brandColor": "#000000",
+  "homepage": "https://cowboy.com",
   "permissions": [],
   "support": "mailto:sjsimon1996@gmail.com",
   "contributing": {
