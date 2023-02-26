@@ -46,8 +46,21 @@
       "class": "other",
       "capabilities": [
         "measure_battery",
-        "alarm_battery"
+        "measure_battery_bike",
+        "alarm_crashed",
+        "autonomy",
+        "total_distance",
+        "total_duration",
+        "total_co2_saved",
+        "latitude",
+        "longitude"
       ],
+      "energy": {
+        "batteries": [
+          "INTERNAL",
+          "INTERNAL"
+        ]
+      },
       "platforms": [
         "local"
       ],
@@ -103,5 +116,124 @@
       ],
       "id": "cowboy-bike"
     }
-  ]
+  ],
+  "capabilities": {
+    "alarm_crashed": {
+      "type": "boolean",
+      "title": {
+        "en": "Crashed",
+        "nl": "Ongeluk"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/cap_crash.svg"
+    },
+    "autonomy": {
+      "type": "number",
+      "title": {
+        "en": "Autonomy",
+        "nl": "Autonomy"
+      },
+      "units": {
+        "en": "km",
+        "nl": "km"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/cap_autonomy.svg"
+    },
+    "latitude": {
+      "type": "number",
+      "title": {
+        "en": "Latitude",
+        "nl": "Latitude"
+      },
+      "units": {
+        "en": "degrees",
+        "nl": "graden"
+      },
+      "decimals": 15,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/cap_longitude.svg"
+    },
+    "longitude": {
+      "type": "number",
+      "title": {
+        "en": "Longitude",
+        "nl": "Longitude"
+      },
+      "units": {
+        "en": "degrees",
+        "nl": "graden"
+      },
+      "decimals": 15,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/cap_longitude.svg"
+    },
+    "measure_battery_bike": {
+      "type": "number",
+      "title": {
+        "en": "PCB Battery",
+        "nl": "PCB batterij"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "battery"
+    },
+    "total_co2_saved": {
+      "type": "number",
+      "title": {
+        "en": "Total CO2 Saved",
+        "nl": "Totale CO2 bespaard"
+      },
+      "units": {
+        "en": "kg",
+        "nl": "kg"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/cap_total_co2_saved.svg"
+    },
+    "total_distance": {
+      "type": "number",
+      "title": {
+        "en": "Total Distance",
+        "nl": "Totale afstand"
+      },
+      "units": {
+        "en": "km",
+        "nl": "km"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/cap_total_distance.svg"
+    },
+    "total_duration": {
+      "type": "number",
+      "title": {
+        "en": "Total Duration",
+        "nl": "Totale duur"
+      },
+      "units": {
+        "en": "Hours",
+        "nl": "Uren"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "./assets/cap_total_duration.svg"
+    }
+  }
 }

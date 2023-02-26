@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Total Duration",
+        "nl": "Totale duur"
+    },
+    "units": {
+        "en": "Hours",
+        "nl": "Uren"
+    },
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon": "./assets/cap_total_duration.svg"
+}

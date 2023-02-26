@@ -1,0 +1,16 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Latitude",
+        "nl": "Latitude"
+    },
+    "units": {
+        "en": "degrees",
+        "nl": "graden"
+    },
+    "decimals": 15,
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon": "./assets/cap_longitude.svg"
+  }

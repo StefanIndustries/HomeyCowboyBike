@@ -5,8 +5,21 @@
   "class": "other",
   "capabilities": [
     "measure_battery",
-    "alarm_battery"
+    "measure_battery_bike",
+    "alarm_crashed",
+    "autonomy",
+    "total_distance",
+    "total_duration",
+    "total_co2_saved",
+    "latitude",
+    "longitude"
   ],
+  "energy": {
+    "batteries": [
+      "INTERNAL",
+      "INTERNAL"
+    ]
+  },
   "platforms": [
     "local"
   ],

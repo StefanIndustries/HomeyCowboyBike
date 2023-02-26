@@ -1,0 +1,14 @@
+{
+    "type": "number",
+    "title": {
+        "en": "PCB Battery",
+        "nl": "PCB batterij"
+    },
+    "units": {
+        "en": "%",
+        "nl": "%"
+    },
+    "getable": true,
+    "setable": false,
+    "uiComponent": "battery"
+  }

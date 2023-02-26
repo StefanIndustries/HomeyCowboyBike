@@ -7,6 +7,7 @@ class CowboyDevice extends Homey.Device {
   private cowboyClient: Cowboy | undefined;
   private bikeId: number | undefined;
   private pollInterval: any;
+  private lastCrash: Date | undefined;
 
   /**
    * onInit is called when the device is initialized.
@@ -28,13 +29,32 @@ class CowboyDevice extends Homey.Device {
 
   private async startPolling() {
     this.pollInterval = this.homey.setInterval(async () => {
-      await this.updateBikeData();
-    }, 10 * 60000) // 10 minutes
+      try {
+        this.setAvailable();
+        await this.updateBikeData();
+      } catch (exception) {
+        this.log(exception);
+        this.setUnavailable();
+      }
+    }, 30 * 60000) // 30 minutes
   }
 
   private async updateBikeData() {
     const bikeData = await this.cowboyClient?.getBike(this.bikeId!);
-    this.setCapabilityValue('measure_battery', bikeData?.battery_state_of_charge)
+    this.setCapabilityValue('measure_battery', bikeData?.battery_state_of_charge);
+    this.setCapabilityValue('measure_battery_bike', bikeData?.pcb_battery_state_of_charge);
+    if (this.lastCrash && this.lastCrash !== bikeData?.last_crash_started_at) {
+      this.setCapabilityValue('alarm_crashed', true);
+    } else {
+      this.lastCrash = bikeData?.last_crash_started_at;
+      this.setCapabilityValue('alarm_crashed', bikeData?.crashed);
+    }
+    this.setCapabilityValue('autonomy', Math.round((bikeData!.autonomy / 100) * bikeData!.battery_state_of_charge));
+    this.setCapabilityValue('total_distance', Math.round(bikeData!.total_distance));
+    this.setCapabilityValue('total_duration', Math.round(bikeData!.total_duration / 3600));
+    this.setCapabilityValue('total_co2_saved', Math.round(bikeData!.total_co2_saved / 1000));
+    this.setCapabilityValue('latitude', bikeData?.position.latitude);
+    this.setCapabilityValue('longitude', bikeData?.position.longitude);
   }
 
   /**
@@ -69,6 +89,9 @@ class CowboyDevice extends Homey.Device {
    * onDeleted is called when the user deleted the device.
    */
   async onDeleted() {
+    if (this.pollInterval) {
+      this.homey.clearInterval(this.pollInterval);
+    }
     this.log('Cowboy device has been deleted');
   }
 }
