@@ -1,13 +1,13 @@
 {
   "name": "com.cowboy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "app.ts",
   "scripts": {
     "build": "tsc",
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore ."
   },
   "dependencies": {
-    "node-cowboybike": "1.0.0"
+    "node-cowboybike": "1.0.1"
   },
   "devDependencies": {
     "@tsconfig/node12": "^1.0.11",
